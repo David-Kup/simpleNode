@@ -6,7 +6,9 @@ const options = {
   cert: fs.readFileSync('cert.pem')
 };
 
+const PORT = 80
+
 https.createServer(options, function (req, res) {
   res.writeHead(200);
   res.end("HTTPS Server is running\n");
-}).listen(80);
+}).listen(PORT, () => console.log(`The server is running on Port ${PORT}`));
